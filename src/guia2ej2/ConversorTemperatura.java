@@ -6,6 +6,9 @@
 
 package guia2ej2;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Damian
@@ -15,6 +18,7 @@ public class ConversorTemperatura extends javax.swing.JFrame {
     /** Creates new form ConversorTemperatura */
     public ConversorTemperatura() {
         initComponents();
+        jTtempC.setHorizontalAlignment(JTextField.RIGHT);
     }
 
     /** This method is called from within the constructor to
@@ -26,21 +30,71 @@ public class ConversorTemperatura extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTtempC = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTBConvertir = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(475, 385));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(154, 0, 165));
+        jLabel2.setText("CONVERSOR DE GRADOS °C A °F");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 30));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(154, 0, 165));
+        jLabel3.setText("GRADOS CENTÍGRADOS");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
+
+        jTtempC.setForeground(new java.awt.Color(154, 0, 165));
+        jTtempC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTtempCActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTtempC, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 80, -1));
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(154, 0, 165));
+        jLabel4.setText("°C");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, -1));
+
+        jTBConvertir.setBackground(new java.awt.Color(154, 0, 165));
+        jTBConvertir.setForeground(new java.awt.Color(255, 255, 255));
+        jTBConvertir.setText("CONVERTIR");
+        jTBConvertir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTBConvertirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTBConvertir, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 460, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTBConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTBConvertirActionPerformed
+        // TODO add your handling code here:
+        try {
+            JOptionPane.showMessageDialog(this, jTtempC.getText()+"°C equivalen a "+
+                    (Double.parseDouble(jTtempC.getText())*9/5 + 32)+"°F");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El dato ingresado no es un número");
+            
+        }
+        jTtempC.setText("");
+    }//GEN-LAST:event_jTBConvertirActionPerformed
+
+    private void jTtempCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTtempCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTtempCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -75,9 +129,16 @@ public class ConversorTemperatura extends javax.swing.JFrame {
                 new ConversorTemperatura().setVisible(true);
             }
         });
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JToggleButton jTBConvertir;
+    private javax.swing.JTextField jTtempC;
     // End of variables declaration//GEN-END:variables
 
 }
